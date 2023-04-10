@@ -22,6 +22,14 @@ fun main(){
     var greats = greater(arrayOf(12,-4,-5,2,17,15,1,4,5))
     println(greats)
     //
+    var human = Human("Alice Moraa",23,58.0)
+    human.eat(3)
+    human.speak("I love kotlin")
+    human.birthday()
+    human.weight
+
+
+
 }
 //This questions are good for practising kotlin
 //Day1
@@ -105,5 +113,28 @@ fun greater(great:Array<Int>): Array<Int> {
     }
     return gNumb
 }
-//11.
+//11. Create a class called Human with these attributes: name, age, weight. It has
+//the following functions:
+//eat(foodWeight: Int) :Prints “I am eating {foodWeight} kgs of food”
+//and increments the human’s weight by the weight of the food eaten
+//speak(speech: String) :Prints the string passed to it
+//birthday( ) :Increments the human’s age by 1
+//Create an instance of this human class and invoke all its functions
+class Human (var name:String,var age:Int,var weight:Double){
+    fun eat(foodWeight:Int){
+        var statement = "I am eating $foodWeight kgs of food"
+        weight+=foodWeight
+        println(statement)
+        println(weight)
+    }
+    fun speak (speech : String){
+        var speaking = speech
+        println(speaking)
+    }
+    fun birthday(){
+        age ++
+        println(age)
+    }
+}
+
 
