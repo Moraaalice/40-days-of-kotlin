@@ -27,9 +27,18 @@ fun main(){
     human.speak("I love kotlin")
     human.birthday()
     human.weight
-
-
-
+    //
+    var phone = Phone(true)
+    phone.switchOff()
+    phone.switchOn()
+    phone.checkScreenLight()
+    //
+    var fold = Foldable(true)
+    fold.phoneFolded()
+    fold.phoneNotFolded()
+    //
+    var person = Person("Alice",23,"0759547300","writing","Linda")
+    person.showProfile()
 }
 //This questions are good for practising kotlin
 //Day1
@@ -136,5 +145,49 @@ class Human (var name:String,var age:Int,var weight:Double){
         println(age)
     }
 }
+//Typically, a phone screen turns on and off when the power button is pressed. In contrast, if a foldable phone is folded, the main inner screen on a foldable phone doesn't turn on when the power button is pressed.
+//
+//In the initial code provided in the following code snippet, write a FoldablePhone class that inherits from the Phone class. It should contain the following:
+//
+//A property that indicates whether the phone is folded.
+//A different switchOn() function behavior than the Phone class so that it only turns the screen on when the phone isn't folded.
+//Methods to change the folding state.
 
-
+open class Phone(var screenIsOn:Boolean){
+    open fun switchOn(){
+          screenIsOn = true
+    }
+    fun switchOff(){
+         screenIsOn = false
+    }
+     fun checkScreenLight(){
+        if (screenIsOn == true)
+            println("The phone screen is on")
+        else
+            println("The phone screen is off")
+    }
+}
+class Foldable (screenIsOn: Boolean ):Phone(screenIsOn){
+    override fun switchOn() {
+        if (screenIsOn){
+            println("phone is not folded")
+        }
+        else
+            println("phone is folded")
+    }
+    fun phoneFolded(){
+        println("phone is folded")
+    }
+    fun phoneNotFolded(){
+        println("phone is not folded")
+    }
+}
+//Oftentimes, you're required to complete profiles for online websites that contain mandatory and non-mandatory fields. For example, you can add your personal information and link to other people who referred you to sign up for the profile.
+//
+//In the initial code provided in the following code snippet, write a program which prints out a person's profile details.
+class Person(var name:String,var age:Int,var phoneNumber:String,var hobby:String,var referee:String){
+    fun showProfile(){
+        var profile = "Name:$name\n Age:$age\n Likes to play tennis does not have a referre"
+        println(profile)
+    }
+}
